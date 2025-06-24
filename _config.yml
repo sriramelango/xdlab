@@ -1,0 +1,61 @@
+# Site settings
+title: XD Lab
+description: Space Engineering & AI Research Laboratory at Embry-Riddle Aeronautical University
+author: Dr. Di Wu
+email: d_wu@mit.edu
+url: "https://diwu.webflow.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Plugins
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Theme settings
+theme_settings:
+  # Color scheme
+  primary_color: "#00549A"
+  secondary_color: "#FFCD4D"
+  
+  # Navigation
+  navigation:
+    - title: "Home"
+      url: "/"
+    - title: "Team"
+      url: "/team/"
+    - title: "Publications"
+      url: "/publications/"
+    - title: "Research"
+      url: "/research/" 
