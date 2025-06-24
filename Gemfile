@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3.0"
+gem "github-pages", "~> 232", group: :jekyll_plugins
+#gem "jekyll", "~> 4.3.0"
 gem "webrick", "~> 1.8"
 gem "csv", "~> 3.2"
 gem "logger", "~> 1.5"
