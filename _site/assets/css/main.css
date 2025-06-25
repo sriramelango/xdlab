@@ -1,27 +1,32 @@
-/* CSS Variables */
+/* CSS Variables - Professional Dark Space Theme */
 :root {
-    --primary-color: #00549A;
-    --secondary-color: #FFCD4D;
-    --accent-color: #FFCD4D;
-    --dark-blue: #003366;
-    --light-blue: #0077CC;
-    --gold: #FFCD4D;
+    --primary-color: #4A90E2;
+    --secondary-color: #FFD700;
+    --accent-color: #00D4FF;
+    --dark-blue: #0B1426;
+    --darker-blue: #050A14;
+    --light-blue: #1E3A8A;
+    --gold: #FFD700;
     --white: #FFFFFF;
-    --black: #1A1A1A;
-    --light-gray: #F8F9FA;
-    --medium-gray: #E9ECEF;
-    --dark-gray: #6C757D;
-    --text-color: #1A1A1A;
-    --background-color: #FFFFFF;
-    --card-bg: #FFFFFF;
-    --border-color: #E9ECEF;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --hover-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-blue) 100%);
-    --gradient-secondary: linear-gradient(135deg, var(--secondary-color) 0%, #FFB800 100%);
-    --section-bg: #FAFBFC;
-    --accent-bg: #F0F4F8;
-    --hero-overlay: rgba(0, 84, 154, 0.85);
+    --black: #000000;
+    --light-gray: #2A2F3E;
+    --medium-gray: #3A4151;
+    --dark-gray: #1A1F2E;
+    --text-color: #E8EAF6;
+    --text-muted: #B0BEC5;
+    --background-color: #0B1426;
+    --card-bg: #1A1F2E;
+    --card-hover: #2A2F3E;
+    --border-color: #3A4151;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    --gradient-primary: linear-gradient(135deg, #4A90E2 0%, #1E3A8A 50%, #0B1426 100%);
+    --gradient-secondary: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
+    --gradient-space: linear-gradient(135deg, #0B1426 0%, #1A1F2E 50%, #2A2F3E 100%);
+    --section-bg: #1A1F2E;
+    --accent-bg: #2A2F3E;
+    --hero-overlay: rgba(11, 20, 38, 0.8);
+    --star-color: rgba(255, 215, 0, 0.6);
 }
 
 /* Import Professional Fonts */
@@ -49,7 +54,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Merriweather', serif;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--white);
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -61,24 +66,27 @@ h1 {
     color: var(--white);
     line-height: 1.1;
     margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
     font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+    color: var(--white);
 }
 
 h3 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--white);
 }
 
 h4 {
     font-size: 1.4rem;
     font-weight: 600;
+    color: var(--white);
 }
 
 p {
@@ -99,7 +107,8 @@ p {
 
 /* Navigation */
 .navbar {
-    background: var(--white);
+    background: rgba(26, 31, 46, 0.95);
+    backdrop-filter: blur(10px);
     padding: 1rem 0;
     position: fixed;
     top: 0;
@@ -148,7 +157,7 @@ p {
 
 .nav-link:hover {
     color: var(--primary-color);
-    background: var(--light-gray);
+    background: var(--accent-bg);
 }
 
 /* Hamburger Menu */
@@ -177,7 +186,7 @@ p {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(0, 84, 154, 0.85) 0%, rgba(0, 51, 102, 0.9) 100%), url('../ERAU.jpg');
+    background: linear-gradient(135deg, rgba(11, 20, 38, 0.9) 0%, rgba(26, 31, 46, 0.8) 100%), url('../ERAU.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -197,8 +206,33 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 84, 154, 0.3) 0%, rgba(0, 51, 102, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(11, 20, 38, 0.7) 0%, rgba(26, 31, 46, 0.8) 100%);
     z-index: 1;
+}
+
+/* Animated Stars Background */
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, var(--star-color), transparent),
+        radial-gradient(2px 2px at 40px 70px, var(--star-color), transparent),
+        radial-gradient(1px 1px at 90px 40px, var(--star-color), transparent),
+        radial-gradient(1px 1px at 130px 80px, var(--star-color), transparent),
+        radial-gradient(2px 2px at 160px 30px, var(--star-color), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 4s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }
 
 .hero-content {
@@ -272,54 +306,49 @@ p {
 
 .cta-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
+    padding: 1rem 2rem;
     text-decoration: none;
+    border-radius: 8px;
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     border: 2px solid transparent;
-    min-width: 160px;
-    text-align: center;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .cta-button.primary {
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    border-color: var(--secondary-color);
+    background: var(--gradient-primary);
+    color: var(--white);
+    box-shadow: var(--shadow);
 }
 
 .cta-button.primary:hover {
-    background: transparent;
-    color: var(--secondary-color);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 205, 77, 0.3);
+    box-shadow: var(--hover-shadow);
+    background: linear-gradient(135deg, #5A9FE2 0%, #2E4A9A 50%, #1B2A46 100%);
 }
 
 .cta-button.secondary {
     background: transparent;
     color: var(--white);
-    border-color: var(--white);
+    border: 2px solid var(--primary-color);
 }
 
 .cta-button.secondary:hover {
-    background: var(--white);
-    color: var(--primary-color);
+    background: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow);
 }
 
 /* Section Headers and Footers */
 .section-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .section-header h2 {
-    margin-bottom: 1.5rem;
+    color: var(--white);
     position: relative;
     display: inline-block;
 }
@@ -330,18 +359,17 @@ p {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
+    width: 60px;
     height: 3px;
     background: var(--gradient-secondary);
     border-radius: 2px;
 }
 
 .section-header p {
+    color: var(--text-muted);
     font-size: 1.2rem;
-    color: var(--dark-gray);
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
-    font-weight: 400;
 }
 
 .section-footer {
@@ -352,14 +380,13 @@ p {
 /* Research Cards */
 .research-card {
     background: var(--card-bg);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
-    padding: 3rem;
+    border-radius: 12px;
+    padding: 2.5rem;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    height: 100%;
+    box-shadow: var(--shadow);
 }
 
 .research-card::before {
@@ -369,92 +396,87 @@ p {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient-secondary);
+    background: var(--gradient-primary);
 }
 
 .research-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+    background: var(--card-hover);
 }
 
 .card-icon {
-    color: var(--primary-color);
-    margin-bottom: 2rem;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: 12px;
     display: flex;
+    align-items: center;
     justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
 .card-icon svg {
-    width: 48px;
-    height: 48px;
+    color: var(--white);
 }
 
 .card-link {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
     display: inline-flex;
     align-items: center;
-    margin-top: 1.5rem;
-    transition: all 0.2s ease;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
 }
 
 .card-link:hover {
-    color: var(--dark-blue);
-    transform: translateX(8px);
+    color: var(--accent-color);
+    transform: translateX(5px);
 }
 
 /* Team Section */
 .team-section {
     background: var(--section-bg);
-    padding: 8rem 0;
 }
 
 .team-member {
-    text-align: center;
-    padding: 2.5rem;
     background: var(--card-bg);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
     border: 1px solid var(--border-color);
-    height: 100%;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
 }
 
 .team-member:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+    background: var(--card-hover);
 }
 
 .team-member img {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 2rem;
-    border: 4px solid var(--secondary-color);
-    display: block;
+    margin-bottom: 1.5rem;
+    border: 4px solid var(--primary-color);
     box-shadow: var(--shadow);
 }
 
 .team-member h3 {
-    color: var(--primary-color);
+    color: var(--white);
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
 }
 
 .team-member .academic-subtitle {
-    color: var(--dark-gray);
+    color: var(--primary-color);
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 /* Team Member Links */
@@ -485,113 +507,95 @@ p {
 
 /* Publications Section */
 .publications-section {
-    background: var(--white);
-    padding: 8rem 0;
+    background: var(--background-color);
 }
 
 .publication-item {
     background: var(--card-bg);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
-    padding: 2.5rem;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
     transition: all 0.3s ease;
-    position: relative;
-    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
 }
 
 .publication-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+    background: var(--card-hover);
 }
 
 .publication-badge {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 0.4rem 1rem;
-    border-radius: 25px;
+    display: inline-block;
+    background: var(--gradient-secondary);
+    color: var(--dark-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: 700;
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .publication-badge.award {
-    background: var(--primary-color);
+    background: var(--gradient-primary);
     color: var(--white);
 }
 
 .publication-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.8rem;
-    font-size: 1.4rem;
-    padding-right: 120px;
-    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
 }
 
 .publication-item .authors {
-    color: var(--dark-gray);
+    color: var(--text-muted);
     font-style: italic;
-    margin-bottom: 0.8rem;
-    font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
 .publication-item .journal {
     color: var(--primary-color);
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 0.5rem;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
 }
 
 .publication-item .year {
-    color: var(--dark-gray);
+    color: var(--secondary-color);
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.95rem;
+    margin-bottom: 1rem;
 }
 
 .publication-item .academic-text {
-    margin-top: 1rem;
     color: var(--text-color);
-    font-size: 1rem;
     line-height: 1.6;
 }
 
 /* Academic Styling */
 .academic-text {
-    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
     line-height: 1.7;
-    font-weight: 400;
 }
 
 .academic-title {
-    font-family: 'Merriweather', serif;
+    color: var(--white);
     font-weight: 700;
-    color: var(--primary-color);
 }
 
 .academic-subtitle {
-    font-family: 'Open Sans', sans-serif;
+    color: var(--primary-color);
     font-weight: 600;
-    color: var(--dark-gray);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
 }
 
 /* PI Profile Styles */
 .pi-profile {
     background: var(--card-bg);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
+    border-radius: 12px;
     padding: 3rem;
     margin-bottom: 3rem;
+    box-shadow: var(--shadow);
 }
 
 .pi-content {
@@ -609,7 +613,7 @@ p {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--secondary-color);
+    border: 4px solid var(--primary-color);
     box-shadow: var(--shadow);
 }
 
@@ -618,32 +622,25 @@ p {
 }
 
 .pi-info h3 {
-    color: var(--primary-color);
-    font-size: 2rem;
+    color: var(--white);
     margin-bottom: 0.5rem;
 }
 
 .pi-info .title {
-    color: var(--dark-gray);
+    color: var(--primary-color);
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
     font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     margin-bottom: 1.5rem;
 }
 
 .pi-info .biography {
     color: var(--text-color);
     line-height: 1.7;
-    font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    text-align: justify;
 }
 
 /* PI Contact Buttons */
 .pi-contact {
-    margin-top: 1.5rem;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
@@ -652,8 +649,8 @@ p {
 .pi-contact a {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: var(--accent-color);
-    color: var(--primary-color);
+    background: var(--gradient-primary);
+    color: var(--white);
     text-decoration: none;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -662,9 +659,9 @@ p {
 }
 
 .pi-contact a:hover {
-    background: #FFB800;
     transform: translateY(-2px);
     box-shadow: var(--shadow);
+    background: linear-gradient(135deg, #5A9FE2 0%, #2E4A9A 50%, #1B2A46 100%);
 }
 
 /* Section Spacing */
@@ -715,7 +712,12 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, var(--star-color), transparent),
+        radial-gradient(2px 2px at 40px 70px, var(--star-color), transparent),
+        radial-gradient(1px 1px at 90px 40px, var(--star-color), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
     opacity: 0.3;
 }
 
@@ -727,19 +729,17 @@ p {
 .page-header h1 {
     color: var(--white);
     margin-bottom: 1.5rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .page-header p {
-    color: var(--white);
+    color: var(--text-muted);
     font-size: 1.2rem;
-    opacity: 0.95;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 /* Page Content Styles */
 .page-content {
+    background: var(--background-color);
     padding: 4rem 0;
 }
 
@@ -937,10 +937,9 @@ p {
 
 /* Footer */
 footer {
-    background: var(--dark-gray);
-    color: var(--white);
-    padding: 4rem 0 2rem;
-    text-align: center;
+    background: var(--darker-blue);
+    color: var(--text-color);
+    padding: 3rem 0 1rem;
     position: relative;
     overflow: hidden;
 }
@@ -952,16 +951,20 @@ footer::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.05"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, var(--star-color), transparent),
+        radial-gradient(1px 1px at 40px 70px, var(--star-color), transparent);
+    background-repeat: repeat;
+    background-size: 100px 50px;
+    opacity: 0.2;
 }
 
 .footer-content {
+    position: relative;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    position: relative;
-    z-index: 2;
 }
 
 .footer-grid {
@@ -971,43 +974,32 @@ footer::before {
     margin-bottom: 2rem;
 }
 
-.footer-section {
-    margin-bottom: 1rem;
-}
-
 .footer-section h3 {
-    color: var(--secondary-color);
+    color: var(--white);
     margin-bottom: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
 }
 
 .footer-section p {
-    color: var(--light-gray);
-    line-height: 1.6;
+    color: var(--text-muted);
     margin-bottom: 0.5rem;
-    font-size: 0.95rem;
 }
 
 .footer-section a {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease;
-    font-weight: 500;
 }
 
 .footer-section a:hover {
-    color: var(--white);
+    color: var(--accent-color);
 }
 
 .footer-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: 2rem;
-    margin-top: 2rem;
-    color: var(--light-gray);
-    font-size: 0.9rem;
-    opacity: 0.8;
+    padding-top: 1rem;
+    text-align: center;
+    color: var(--text-muted);
 }
 
 /* Section Footer */
