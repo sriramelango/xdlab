@@ -3,8 +3,8 @@ title: XD Lab
 description: Space Engineering & AI Research Laboratory at Embry-Riddle Aeronautical University
 author: Dr. Di Wu
 email: d_wu@mit.edu
-url: "https://diwu.webflow.io"
-baseurl: ""
+url: "https://sriramelango.github.io"
+baseurl: "/xdlab"
 
 # Build settings
 markdown: kramdown
@@ -42,6 +42,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - _site/
 
 # Theme settings
 theme_settings:
